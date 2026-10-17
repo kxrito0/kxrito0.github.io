@@ -1,30 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolios de Karol Becerra</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portafolio · Karol Becerra</title>
+  <meta name="description" content="Portafolio de código creativo de Karol Becerra: experimentos de arte generativo e interacción en la web." />
+  <meta name="theme-color" content="#07060a" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Great+Vibes&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js" defer></script>
+  <script src="scene.js" defer></script>
+  <script src="reveal.js" defer></script>
 </head>
-<body> 
-   <main class="main-content">
-    <header class="title">
-        <h1>Karol Becerra</h1> 
-       <p>Portafolio de código creativo </p>
-       </header>
-       <nav>
-    
-             <ul>
-                <li class="itemlist"><a target="_blank" href="https://kxrito0.github.io/pelota-que_rebotaa/">Pelota que rebota </a></li>
-                <li class="itemlist"><a target="_blank" href="https://kxrito0.github.io/interracion-manos-web/">Interacción con las Manos </a></li>
-                <li class="itemlist"><a target="_blank" href="">proyecto 3  </a></li>
-                <li class="itemlist"><a target="_blank" href="">proyecto 4  </a></li>
-             </ul>
-        </ul>
-       </nav>
-   </main
+<body>
+  <div class="scene" id="scene" aria-hidden="true"></div>
 
+  <div class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__ornament reveal" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
 
-    </body>
+        <h1 class="hero__title reveal" id="hero-title">Portafolio</h1>
+        <p class="hero__name reveal">Karol Becerra</p>
+        <p class="hero__subtitle reveal">Portafolio de código creativo</p>
+
+        <a class="scroll-hint reveal" href="#proyectos">
+          <span>Ver proyectos</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 4v14M6 12l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="clouds" aria-hidden="true">
+        <svg class="clouds__svg" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradLilac" x1="0" y1="0" x2="0.15" y2="1">
+              <stop offset="0%" stop-color="#eadcff" />
+              <stop offset="100%" stop-color="#9d7ce0" />
+            </linearGradient>
+            <linearGradient id="gradPink" x1="0" y1="0" x2="0.15" y2="1">
+              <stop offset="0%" stop-color="#ffdff1" />
+              <stop offset="100%" stop-color="#e88ac5" />
+            </linearGradient>
+            <linearGradient id="gradSky" x1="0" y1="0" x2="0.15" y2="1">
+              <stop offset="0%" stop-color="#e2f6ff" />
+              <stop offset="100%" stop-color="#8bc9ef" />
+            </linearGradient>
+            <linearGradient id="gradCream" x1="0" y1="0" x2="0.15" y2="1">
+              <stop offset="0%" stop-color="#fff8ec" />
+              <stop offset="100%" stop-color="#f2c8ae" />
+            </linearGradient>
+
+            <path
+              id="cloudPuff"
+              d="M 34 158 C 12 158 2 136 14 120 C 0 96 20 78 42 84 C 44 56 76 40 100 58 C 110 26 152 16 174 46 C 194 20 234 30 240 60 C 266 50 292 68 288 92 C 314 96 328 116 318 134 C 310 150 296 158 278 158 Z"
+            />
+            <path id="cloudShine" d="M 104 52 C 120 32 146 24 166 40" />
+          </defs>
+
+          <g transform="translate(268,116) scale(0.84)">
+            <g class="cloud cloud--lilac">
+              <use href="#cloudPuff" fill="url(#gradLilac)" stroke="#8f6cc9" stroke-width="2" />
+              <use href="#cloudShine" fill="none" stroke="#ffffff" stroke-opacity=".38" stroke-width="7" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <g transform="translate(18,148) scale(1.02)">
+            <g class="cloud cloud--sky">
+              <use href="#cloudPuff" fill="url(#gradSky)" stroke="#6aa8cf" stroke-width="2" />
+              <use href="#cloudShine" fill="none" stroke="#ffffff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <g transform="translate(596,116) scale(1.18)">
+            <g class="cloud cloud--pink">
+              <use href="#cloudPuff" fill="url(#gradPink)" stroke="#cf7cae" stroke-width="2" />
+              <use href="#cloudShine" fill="none" stroke="#ffffff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round" />
+            </g>
+          </g>
+
+          <g transform="translate(1084,178) scale(0.88)">
+            <g class="cloud cloud--cream">
+              <use href="#cloudPuff" fill="url(#gradCream)" stroke="#d3a189" stroke-width="2" />
+              <use href="#cloudShine" fill="none" stroke="#ffffff" stroke-opacity=".42" stroke-width="7" stroke-linecap="round" />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="projects" id="proyectos" aria-labelledby="projects-title">
+      <div class="projects__head reveal">
+        <h2 class="projects__title" id="projects-title">Proyectos</h2>
+        <span class="projects__rule" aria-hidden="true"></span>
+      </div>
+
+      <ul class="cards">
+        <li class="note note--pink reveal">
+          <a class="note__link" href="https://kxrito0.github.io/pelota-que_rebotaa/" target="_blank" rel="noopener noreferrer">
+            <span class="note__index">01</span>
+            <span class="note__title">Pelota que rebota</span>
+            <span class="note__cta">
+              Abrir proyecto
+              <svg class="note__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </li>
+
+        <li class="note note--lilac reveal">
+          <a class="note__link" href="https://kxrito0.github.io/interracion-manos-web/" target="_blank" rel="noopener noreferrer">
+            <span class="note__index">02</span>
+            <span class="note__title">Interacción con las Manos</span>
+            <span class="note__cta">
+              Abrir proyecto
+              <svg class="note__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </li>
+
+        <li class="note note--yellow reveal">
+          <div class="note__static" role="note" aria-label="Proyecto 3, próximamente">
+            <span class="note__index">03</span>
+            <span class="note__title">Proyecto 3</span>
+            <span class="note__cta note__cta--soon">Próximamente</span>
+          </div>
+        </li>
+
+        <li class="note note--sky reveal">
+          <div class="note__static" role="note" aria-label="Proyecto 4, próximamente">
+            <span class="note__index">04</span>
+            <span class="note__title">Proyecto 4</span>
+            <span class="note__cta note__cta--soon">Próximamente</span>
+          </div>
+        </li>
+      </ul>
+
+      <footer class="footer reveal">
+        <span>Karol Becerra</span>
+        <span>Papel, p5.js y tijeras</span>
+      </footer>
+    </section>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+</body>
 </html>
